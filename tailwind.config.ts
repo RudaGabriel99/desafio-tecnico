@@ -1,3 +1,4 @@
+import { nextui } from "@nextui-org/theme";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,8 +12,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        sidebarblue: "#23265A",
+        bgHome: "#121433",
+        emphasisBlue: "#373a69",
+      },
+      backgroundImage: {
+        gradientBlue: "linear-gradient(to right, #0191FF, #01C7FD)",
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 } satisfies Config;

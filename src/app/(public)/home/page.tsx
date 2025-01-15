@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-      <div></div>
+      <p className="mt-2 text-white">teste</p>
   );
 }
