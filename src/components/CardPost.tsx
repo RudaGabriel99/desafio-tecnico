@@ -1,42 +1,87 @@
-"use client"
+"use client";
 
 import { Avatar, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import IconCheck from "@public/IconCheckVased.svg";
-import PostImage from "@public/postImage.png";
-import IconUser from "@public/user.png";
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { ChatTeardropDots, Heart, ShareNetwork } from "phosphor-react";
 import React from "react";
+import { WrapperComents } from "./WrapperComents";
 
-export const CardPost: React.FC = () => {
+interface CardPostProps {
+    id?: number;
+    body: string;
+    userName: string;
+    userAvatar: string;
+    userRole: string;
+    createdAt: string;
+    likes: number;
+    comments: number;
+    shares: number;
+    commentsData?: Array<{
+        userName: string;
+        userAvatar: string;
+        createdAt: string;
+        comment: string;
+    }>;
+    postImage?: string;
+}
+
+export const CardPost: React.FC<CardPostProps> = ({
+    body,
+    userName,
+    userAvatar,
+    userRole,
+    createdAt,
+    likes,
+    comments,
+    shares,
+    commentsData = [],
+    postImage,
+}) => {
+    const formattedDate = formatDistanceToNow(new Date(createdAt), { addSuffix: true, locale: ptBR });
+
     return (
-        <Card className="p-4 bg-primary rounded-2xl max-w-max">
+        <Card className="p-4 bg-primary rounded-2xl">
             <CardHeader className="pb-0 pt-2 flex-col items-start">
                 <div className="flex w-full items-center gap-2">
-                    <Avatar size="md" src={IconUser.src} />
+                    <Avatar size="md" src={userAvatar} />
                     <div>
                         <div className="flex flex-row items-center gap-2">
-                            <p className="text-white font-semibold text-sm">Joaquim Arquino</p>
-                            <Image src={IconCheck.src} alt="IconUser" className="w-4 h-4" />
-                            <p className="text-white font-thin text-xs">1h atrás</p>
+                            <p className="font-semibold text-sm">{userName}</p>
+                            <p className="text-gray-300 font-thin text-xs">{formattedDate}</p>
                         </div>
-
-                        <p className="font-light text-white text-xs">
-                            Co-Founder AMBEV
-                        </p>
+                        <p className="font-semibold text-xs">{userRole}</p>
                     </div>
-
+                </div>
+                <div className="w-full overflow-visible py-2 flex flex-col gap-3">
+                    <p className="font-light text-sm">{body}</p>
+                    {postImage && (
+                        <Image
+                            alt="Card post"
+                            className="object-cover rounded-xl"
+                            src={postImage}
+                            width={900}
+                        />
+                    )}
+                    <div className="flex justify-between">
+                        <div className="flex items-center gap-2">
+                            <Heart size={30} />
+                            <p>{likes} Curtidas</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <ChatTeardropDots size={30} />
+                            <p>{comments} Comentários</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <ShareNetwork size={30} />
+                            <p>{shares} Compartilhamentos</p>
+                        </div>
+                    </div>
                 </div>
             </CardHeader>
-            <CardBody className="overflow-visible py-2 flex flex-col gap-3">
-                <p className="font-light text-white text-sm">
-                    Lorem ipsum dolor sit amet consectetur. Aenean ut sed in at venenatis pulvinar lorem gravida. Felis vestibulum et tincidunt eget ac sed ultricies elit. Urna netus ullamcorper risus tortor dictum molestie semper varius sit.
-                </p>
-                <Image
-                    alt="Card post"
-                    className="object-cover rounded-xl"
-                    src={PostImage.src}
-                    width={900}
-                />
+            <CardBody className="mt-auto pt-3 border-t border-gray-700">
+                <WrapperComents comments={commentsData} />
             </CardBody>
         </Card>
     );
-}
+};

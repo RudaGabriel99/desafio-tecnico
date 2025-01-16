@@ -1,31 +1,42 @@
 "use client";
 
 import { Avatar, Button, Input } from "@nextui-org/react";
-import { PaperPlaneRight } from "phosphor-react";
+import { ElementType } from "react";
 
 export default function PostInput({
     userImage,
     placeholder = "O que você deseja publicar?",
     onSend,
+    icon: Icon,
+    color = "primary",
     ...props
 }: {
-    userImage: string;
+    userImage?: string;
+    icon?: ElementType;
+    color?: "primary" | "emphasis";
     placeholder?: string;
     onSend?: () => void;
 }) {
     return (
-        <div className="items-center bg-primary py-2 rounded-3xl w-full">
+        <div
+            className={`items-center py-2 rounded-3xl w-full ${color === "primary" ? "bg-primary" : "bg-emphasis"
+                }`}
+        >
             <Input
                 color="secondary"
                 placeholder={placeholder}
                 {...props}
                 startContent={
-                    <Avatar size="md" src={userImage} />
+                    userImage && (
+                        <Avatar size="md" src={userImage} />
+                    )
                 }
                 endContent={
-                    <Button radius="full" color="secondary" onPress={onSend} >
-                        <PaperPlaneRight size={22} className="text-white" />
-                    </Button>
+                    Icon && (
+                        <Button radius="full" color="secondary" onPress={onSend}>
+                            <Icon className="w-full h-full text-white" />
+                        </Button>
+                    )
                 }
             />
         </div>

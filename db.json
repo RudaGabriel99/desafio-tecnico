@@ -1,0 +1,278 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "user": {
+        "name": "Joaquim Arquino",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Co-Founder AMBEV"
+      },
+      "postedAt": "2023-12-01",
+      "content": {
+        "text": "Lorem ipsum dolor sit amet consectetur. Aenean ut sed in at venenatis pulvinar.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 28500,
+        "comments": 34,
+        "shares": 150
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "Maria Silva",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-02",
+          "comment": "Adorei o post, muito inspirador!"
+        },
+        {
+          "id": 2,
+          "userName": "Carlos Souza",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-03",
+          "comment": "Muito interessante, compartilhei com os amigos!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Ana Lima",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Designer Gráfico"
+      },
+      "postedAt": "2023-12-02",
+      "content": {
+        "text": "Curta o momento, o tempo é agora.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 1500,
+        "comments": 3,
+        "shares": 20
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "Beatriz Costa",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-03",
+          "comment": "Lindo! Verdade absoluta!"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "Lucas Pereira",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Engenheiro de Software"
+      },
+      "postedAt": "2023-12-03",
+      "content": {
+        "text": "Fazendo algo grande amanhã, vamos com tudo!",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 20000,
+        "comments": 0,
+        "shares": 100
+      },
+      "comments": []
+    },
+    {
+      "id": 4,
+      "user": {
+        "name": "Gustavo Ramos",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Product Manager"
+      },
+      "postedAt": "2023-12-04",
+      "content": {
+        "text": "A vida é uma questão de perspectiva.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 1800,
+        "comments": 10,
+        "shares": 60
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "Juliana Santos",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-04",
+          "comment": "Concordo totalmente! A perspectiva muda tudo!"
+        },
+        {
+          "id": 2,
+          "userName": "Thiago Almeida",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-05",
+          "comment": "Reflexão perfeita para um dia de trabalho."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "user": {
+        "name": "Mariana Oliveira",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "UX/UI Designer"
+      },
+      "postedAt": "2023-12-05",
+      "content": {
+        "text": "Projetando o futuro com as mãos no presente.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 2500,
+        "comments": 0,
+        "shares": 120
+      },
+      "comments": []
+    },
+    {
+      "id": 6,
+      "user": {
+        "name": "Roberta Costa",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "CFO"
+      },
+      "postedAt": "2023-12-06",
+      "content": {
+        "text": "Quem não arrisca, não petisca.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 10000,
+        "comments": 5,
+        "shares": 300
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "Ricardo Alves",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-07",
+          "comment": "Arrisquei e deu certo! Aposta ganha!"
+        },
+        {
+          "id": 2,
+          "userName": "Sofia Marques",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-07",
+          "comment": "Concordo! Às vezes, precisamos dar o primeiro passo."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "user": {
+        "name": "Felipe Costa",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Data Scientist"
+      },
+      "postedAt": "2023-12-07",
+      "content": {
+        "text": "Mantenha seus olhos no futuro e seus pés no presente.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 9500,
+        "comments": 2,
+        "shares": 90
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "Patricia Lima",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-08",
+          "comment": "Sabias palavras!"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "user": {
+        "name": "Pedro Santos",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "CEO"
+      },
+      "postedAt": "2023-12-08",
+      "content": {
+        "text": "Liderança não é sobre ser o melhor. É sobre fazer os outros melhores.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 3200,
+        "comments": 1,
+        "shares": 75
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "André Souza",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-09",
+          "comment": "Excelente pensamento, Pedro!"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "user": {
+        "name": "Carla Pereira",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Marketing Director"
+      },
+      "postedAt": "2023-12-09",
+      "content": {
+        "text": "O sucesso vem para aqueles que sabem onde estão indo.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 5000,
+        "comments": 0,
+        "shares": 50
+      },
+      "comments": []
+    },
+    {
+      "id": 10,
+      "user": {
+        "name": "Diego Ribeiro",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "Product Owner"
+      },
+      "postedAt": "2023-12-10",
+      "content": {
+        "text": "Viver com propósito é o segredo para o sucesso.",
+        "image": "https://via.placeholder.com/600x400"
+      },
+      "stats": {
+        "likes": 15000,
+        "comments": 8,
+        "shares": 200
+      },
+      "comments": [
+        {
+          "id": 1,
+          "userName": "João Batista",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-11",
+          "comment": "Sim, encontrar o propósito é essencial!"
+        },
+        {
+          "id": 2,
+          "userName": "Lucas Silva",
+          "userAvatar": "https://via.placeholder.com/150",
+          "createdAt": "2023-12-12",
+          "comment": "Com certeza! Cada passo vale a pena."
+        }
+      ]
+    }
+  ]
+}

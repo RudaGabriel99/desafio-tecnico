@@ -2,6 +2,7 @@
 
 import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/Topbar";
+import QueryProvider from "@/context/QueryClientProvider";
 import { NextUIProvider } from "@nextui-org/react";
 import { DM_Sans } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
@@ -26,14 +27,16 @@ export default function RootLayout({
         className={`${dM_Sans.className} antialiased flex bg-background min-h-screen`}
       >
         <NextUIProvider navigate={router.push} className="flex w-full">
-          <Sidebar />
+          <QueryProvider>
+            <Sidebar />
 
-          <div className="flex flex-col w-full">
-            <TopBar pathname={pathname} notificationsCount={4} />
-            <div className="flex-1 overflow-auto">
-              {children}
+            <div className="flex flex-col w-full">
+              <TopBar pathname={pathname} notificationsCount={4} />
+              <div className="flex-1 overflow-auto">
+                {children}
+              </div>
             </div>
-          </div>
+          </QueryProvider>
         </NextUIProvider>
       </body>
     </html>
