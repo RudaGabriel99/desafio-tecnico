@@ -3,7 +3,7 @@
 import { Avatar } from "@nextui-org/react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface Comment {
     userName: string;
@@ -18,6 +18,13 @@ interface WrapperComentsProps {
 }
 
 export const WrapperComents: React.FC<WrapperComentsProps> = ({ comments, onResponse }) => {
+
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true)
+    }, []);
+
     return (
         <div className="flex flex-col gap-2">
             {comments.map((comment, index) => {
@@ -26,7 +33,7 @@ export const WrapperComents: React.FC<WrapperComentsProps> = ({ comments, onResp
                 return (
                     <div key={index} className="flex flex-col gap-2">
                         <div className="flex w-full items-center gap-2">
-                            <Avatar size="md" src={comment.userAvatar} />
+                            {isClient && <Avatar size="md" src={comment.userAvatar} />}
                             <div>
                                 <div className="flex flex-row items-center gap-2">
                                     <p className="text-white font-semibold text-sm">{comment.userName}</p>

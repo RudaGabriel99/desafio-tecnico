@@ -4,8 +4,9 @@ import { Avatar, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ChatTeardropDots, Heart, ShareNetwork } from "phosphor-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { WrapperComents } from "./WrapperComents";
+
 
 interface CardPostProps {
     id?: number;
@@ -39,6 +40,16 @@ export const CardPost: React.FC<CardPostProps> = ({
     postImage,
 }) => {
     const formattedDate = formatDistanceToNow(new Date(createdAt), { addSuffix: true, locale: ptBR });
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
         <Card className="p-4 bg-primary rounded-2xl">

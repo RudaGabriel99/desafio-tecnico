@@ -41,6 +41,7 @@ export default function Community() {
             userAvatar={post.user.avatar}
             userRole={post.user.role}
             createdAt={post.postedAt}
+            postImage={post.content.image || ""}
             body={post.content.text}
             likes={post.stats.likes}
             comments={post.stats.comments}
