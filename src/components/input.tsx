@@ -11,16 +11,18 @@ export default function InputSearch({
     placeholder?: string;
 }) {
     return (
-        <div className="flex flex-row bg-sidebarblue px-3 py-2 rounded-full">
-            {Icon ? (
-                <div className="flex items-center justify-center w-6 h-6 mr-2">
-                    <Icon className="w-full h-full text-white" />
-                </div>
-            ) : null}
-            <Input
-                placeholder={placeholder}
-                {...props}
-            />
-        </div>
+        <Input
+            color="primary"
+            placeholder={placeholder}
+            className="no-hover"
+            {...props}
+            startContent={
+                Icon && (
+                    <div className="flex items-center justify-center w-6 h-6 mr-2">
+                        <Icon className="w-full h-full text-white" />
+                    </div>
+                )
+            }
+        />
     );
 }

@@ -1,9 +1,10 @@
 "use client";
 
-import { Sidebar } from "@/components/sidebar";
-import { TopBar } from "@/components/topbar";
+import { Sidebar } from "@/components/Sidebar";
+import { TopBar } from "@/components/Topbar";
+import { NextUIProvider } from "@nextui-org/react";
 import { DM_Sans } from "next/font/google";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import "./globals.css";
 
 const dM_Sans = DM_Sans({
@@ -17,17 +18,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <html lang="pt">
       <body
-        className={`${dM_Sans.className} antialiased flex bg-bgHome`}
+        className={`${dM_Sans.className} antialiased flex bg-background min-h-screen`}
       >
-        <Sidebar />
-        <div className="flex w-full flex-col gap-2">
-          <TopBar pathname={pathname} notificationsCount={4} />
-          {children}
-        </div>
+        <NextUIProvider navigate={router.push} className="flex w-full">
+          <Sidebar />
+
+          <div className="flex flex-col w-full">
+            <TopBar pathname={pathname} notificationsCount={4} />
+            <div className="flex-1 overflow-auto">
+              {children}
+            </div>
+          </div>
+        </NextUIProvider>
       </body>
     </html>
   );
