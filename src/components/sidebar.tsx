@@ -14,37 +14,51 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export const Sidebar = () => {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/home", label: "Início", icon: IconHome },
-    { href: "/conection", label: "Conexões", icon: IconConect },
-    { href: "/services", label: "Serviços", icon: IconService },
-    { href: "/community", label: "Comunidade", icon: IconComunity },
-    { href: "/profile", label: "Perfil", icon: IconProfile },
-    { href: "/settings", label: "Configurações", icon: IconConfig },
+    { href: "/home", label: "Início", icon: IconHome, active: false },
+    { href: "/conection", label: "Conexões", icon: IconConect, active: false },
+    { href: "/services", label: "Serviços", icon: IconService, active: false },
+    { href: "/community", label: "Comunidade", icon: IconComunity, active: true },
+    { href: "/profile", label: "Perfil", icon: IconProfile, active: true },
+    { href: "/settings", label: "Configurações", icon: IconConfig, active: false },
   ];
 
   return (
-    <div className="flex flex-col w-72 m-3 bg-primary text-white p-5 rounded-[30px]">
-      <div className="mb-8">
+    <div className="flex flex-col w- sm:w-72 m-3 bg-primary text-white p-5 rounded-[30px]">
+      <div className="mb-8 flex flex-row items-center justify-between">
         <Image src={Logo} alt="logo" />
       </div>
 
       <nav className="flex flex-col gap-1">
-        {menuItems.map(({ href, label, icon }) => (
-          <Link
+        {menuItems.map(({ href, label, icon, active }) => (
+          <div
             key={href}
-            href={href}
-            className={`flex items-center gap-2 px-5 py-3 rounded-full cursor-pointer transition-colors ${pathname === href
+            className={`flex items-center gap-2 px-5 py-3 rounded-full cursor-pointer transition-colors ${active
+              ? pathname === href
                 ? "bg-gradientBlue text-white"
                 : "hover:bg-emphasisBlue text-white"
+              : "opacity-50 cursor-not-allowed"
               }`}
           >
-            <Image src={icon} alt={label} className="w-4" />
-            <label className="cursor-pointer">{label}</label>
-          </Link>
+            {active ? (
+              <Link href={href} className="flex items-center gap-2">
+                <Image src={icon} alt={label} className="w-4" />
+                <label>{label}</label>
+              </Link>
+            ) : (
+              <>
+                <Image src={icon} alt={label} className="w-4" />
+                <label>{label}</label>
+              </>
+            )}
+          </div>
         ))}
       </nav>
 

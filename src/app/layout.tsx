@@ -6,11 +6,12 @@ import QueryProvider from "@/context/QueryClientProvider";
 import { NextUIProvider } from "@nextui-org/react";
 import { DM_Sans } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import "./globals.css";
 
 const dM_Sans = DM_Sans({
   subsets: ["latin"],
-  weight: ['500', '600', '700']
+  weight: ["500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -18,8 +19,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [visible, setVisible] = useState(false);
+
   const pathname = usePathname();
   const router = useRouter();
+
+  const handleVisible = () => {
+    setVisible(!visible);
+  };
 
   return (
     <html lang="pt">
@@ -28,14 +35,18 @@ export default function RootLayout({
       >
         <NextUIProvider navigate={router.push} className="flex w-full">
           <QueryProvider>
-            <Sidebar />
 
-            <div className="flex flex-col w-full">
-              <TopBar pathname={pathname} notificationsCount={4} />
-              <div className="flex-1 overflow-auto">
-                {children}
+            <div className="flex flex-col sm:flex-row">
+              <Sidebar />
+
+              <div className="flex flex-col w-full h-screen">
+                <TopBar onMenu={handleVisible} pathname={pathname} notificationsCount={4} />
+                <div className="flex-1 max-h-[calc(100vh-64px)] overflow-y-auto">
+                  {children}
+                </div>
               </div>
             </div>
+
           </QueryProvider>
         </NextUIProvider>
       </body>

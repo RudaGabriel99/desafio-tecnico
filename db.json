@@ -274,5 +274,33 @@
         }
       ]
     }
-  ]
+  ],
+  "user": {
+    "id": 1,
+    "name": "Joaquim Arquino",
+    "avatar": "https://randomuser.me/api/portraits/men/12.jpg",
+    "area": "Tecnologia",
+    "role": "Co-Founder AMBEV",
+    "wallpaper": "https://via.placeholder.com/1920x1080",
+    "contact": "https://wa.me/00000000000",
+    "address": "Los Angeles, California",
+    "tags": [
+      "Master Business",
+      "Jornada",
+      "Conselho JK",
+      "Conselho Forum"
+    ],
+    "certificate":{
+      "name": "Marketing Digital",
+      "description": "Escola de Marketing",
+      "image": "https://t4.ftcdn.net/jpg/02/01/82/51/360_F_201825112_dm1tHvITOxrZf7tA1lCSLLytD3ppx0nQ.jpg"
+    },
+    "enterprise":{
+      "name": "Coca-Cola",
+      "description": "Produtos alimentícios",
+      "image": "https://logodownload.org/wp-content/uploads/2014/04/coca-cola-logo-1-1.png",
+      "infoEnterprise" : "A Coca-Cola é um refrigerante carbonado, criado em 1886 pelo Dr. John Pemberton. A bebida é feita a partir de extrato de noz de cola, água gaseificada, açúcar, cafeína, corante caramelo IV, ácido fosfórico e aroma natural."
+    }
+
+  }
 }

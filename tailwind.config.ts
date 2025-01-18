@@ -40,8 +40,9 @@ const config: Config = {
               foreground: "#121433",
             },
             background: "#FCFFFD",
-            foreground: "#121433",
+            foreground: "#373a69",
             secondary: "#0191FF",
+            
           },
         },
         dark: {
@@ -52,7 +53,7 @@ const config: Config = {
               foreground: "#FCFFFD",
             },
             background: "#121433",
-            foreground: "#FCFFFD",
+            foreground: "#373a69",
             secondary: "#0191FF",
           },
         },

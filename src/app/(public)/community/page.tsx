@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { CardPost } from "@/components/CardPost";
 import { CardReference } from "@/components/CardReference";
@@ -9,13 +9,13 @@ import IconUser from "@public/user.png";
 import { PaperPlaneRight } from "phosphor-react";
 
 const tropics = [
-  "Empresas",
-  "Ações",
-  "Marketing",
-  "Livros",
-  "Design",
-  "Investimentos",
-  "Tecnologia"
+  { title: "Empresas", amount: 12 },
+  { title: "Ações", amount: 8 },
+  { title: "Marketing", amount: 15 },
+  { title: "Livros", amount: 5 },
+  { title: "Design", amount: 9 },
+  { title: "Investimentos", amount: 20 },
+  { title: "Tecnologia", amount: 18 },
 ];
 
 export default function Community() {
@@ -25,16 +25,18 @@ export default function Community() {
   if (error) return <div>Erro ao carregar os posts</div>;
 
   return (
-    <div className="mx-auto py-5 flex flex-row gap-5 max-w-screen-xl px-4">
-      <div className="flex max-w-screen-lg flex-col gap-5 flex-1">
-        <div className="flex flex-wrap gap-3">
-          {tropics.map((title, index) => (
-            <ChipFilter key={index} title={title} amount={3} />
+    <div className="mx-auto py-5 flex flex-col lg:flex-row gap-5 max-w-screen-lg px-4">
+      <div className="flex flex-col gap-5 flex-1">
+
+        <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+          {tropics.map((topic, index) => (
+            <ChipFilter key={index} title={topic.title} amount={topic.amount} />
           ))}
         </div>
+
         <PostInput icon={PaperPlaneRight} userImage={IconUser.src} />
 
-        {posts?.map(post => (
+        {posts?.map((post) => (
           <CardPost
             key={post.id}
             userName={post.user.name}
@@ -51,8 +53,10 @@ export default function Community() {
         ))}
       </div>
 
-      <div className="flex w-full max-w-xs bg-primary p-4 rounded-xl h-max flex-col gap-5">
-        <p className="text-white text-sm">Referências do setor</p>
+      <div className="flex w-full lg:max-w-xs bg-primary p-4 rounded-xl h-max flex-col gap-5">
+        <p className="text-white text-sm text-center lg:text-left">
+          Referências do setor
+        </p>
         <CardReference />
       </div>
     </div>

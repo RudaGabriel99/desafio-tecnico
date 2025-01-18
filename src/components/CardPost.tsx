@@ -1,12 +1,10 @@
 "use client";
 
-import { Avatar, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { Avatar, Button, Card, CardBody, CardHeader, Image, Input } from "@nextui-org/react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ChatTeardropDots, Heart, ShareNetwork } from "phosphor-react";
 import React, { useEffect, useState } from "react";
-import { WrapperComents } from "./WrapperComents";
-
 
 interface CardPostProps {
     id?: number;
@@ -39,9 +37,13 @@ export const CardPost: React.FC<CardPostProps> = ({
     commentsData = [],
     postImage,
 }) => {
-    const formattedDate = formatDistanceToNow(new Date(createdAt), { addSuffix: true, locale: ptBR });
+    const formattedDate = formatDistanceToNow(new Date(createdAt), {
+        addSuffix: true,
+        locale: ptBR,
+    });
 
     const [isMounted, setIsMounted] = useState(false);
+    const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
@@ -75,23 +77,50 @@ export const CardPost: React.FC<CardPostProps> = ({
                         />
                     )}
                     <div className="flex justify-between">
-                        <div className="flex items-center gap-2">
-                            <Heart size={30} />
-                            <p>{likes} Curtidas</p>
+                        <div className="flex items-center gap-2 cursor-pointer">
+                            <Heart size={25} />
+                            <p className="text-xs lg:text-sm">{likes} likes</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <ChatTeardropDots size={30} />
-                            <p>{comments} Comentários</p>
+                        <div
+                            className="flex items-center gap-2 cursor-pointer "
+                            onClick={() => setIsCommentsOpen(!isCommentsOpen)}
+                        >
+                            <ChatTeardropDots size={25} />
+                            <p className="text-xs lg:text-sm">{comments} comments</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <ShareNetwork size={30} />
-                            <p>{shares} Compartilhamentos</p>
+                        <div className="flex items-center gap-2 cursor-pointer">
+                            <ShareNetwork size={25} />
+                            <p className="text-xs lg:text-sm">{shares} shares</p>
                         </div>
                     </div>
                 </div>
             </CardHeader>
-            <CardBody className="mt-auto pt-3 border-t border-gray-700">
-                <WrapperComents comments={commentsData} />
+            <CardBody className={`mt-auto pt-3 transition-all duration-300 ${isCommentsOpen ? "h-auto" : "h-0 overflow-hidden"}`}>
+                {isCommentsOpen && (
+                    <div className="flex flex-col gap-3">
+                        {commentsData.map((comment, index) => (
+                            <div key={index} className="flex items-start gap-2">
+                                <Avatar size="sm" src={comment.userAvatar} />
+                                <div>
+                                    <p className="text-sm font-semibold">{comment.userName}</p>
+                                    <p className="text-xs text-gray-300">{comment.comment}</p>
+                                    <p className="text-xs text-gray-500">{formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true, locale: ptBR })}</p>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="flex items-center gap-2 mt-3">
+                            <Avatar size="sm" src={userAvatar} />
+                            <Input
+                                className="flex-1"
+                                placeholder="Adicione um comentário..."
+                                size="sm"
+                            />
+                            <Button size="sm" variant="flat" color="secondary">
+                                Comentar
+                            </Button>
+                        </div>
+                    </div>
+                )}
             </CardBody>
         </Card>
     );
