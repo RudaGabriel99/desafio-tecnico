@@ -36,7 +36,7 @@ export default function RootLayout({
         <NextUIProvider navigate={router.push} className="flex w-full">
           <QueryProvider>
 
-            <div className="flex flex-col sm:flex-row">
+            <div className="flex flex-col sm:flex-row w-full">
               <Sidebar />
 
               <div className="flex flex-col w-full h-screen">
