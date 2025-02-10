@@ -5,7 +5,6 @@ import IconComunity from "@public/IconComunity.svg";
 import IconConect from "@public/IconConection.svg";
 import IconConfig from "@public/IconConfig.svg";
 import IconHome from "@public/IconHome.svg";
-import IconExit from "@public/IconLogout.svg";
 import IconProfile from "@public/IconProfile.svg";
 import IconService from "@public/IconService.svg";
 import Logo from "@public/Logo.png";
@@ -22,7 +21,7 @@ export const Sidebar: React.FC<SidebarProps> = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/home", label: "Início", icon: IconHome, active: false },
+    { href: "/", label: "Início", icon: IconHome, active: false },
     { href: "/conection", label: "Conexões", icon: IconConect, active: false },
     { href: "/services", label: "Serviços", icon: IconService, active: false },
     { href: "/community", label: "Comunidade", icon: IconComunity, active: true },
@@ -37,7 +36,7 @@ export const Sidebar: React.FC<SidebarProps> = () => {
       </div>
 
       <nav className="flex flex-col gap-1">
-        {menuItems.map(({ href, label, icon, active }) => (
+        {menuItems.map(({ href, label, active }) => (
           <div
             key={href}
             className={`flex items-center gap-2 px-5 py-3 rounded-full cursor-pointer transition-colors ${active
@@ -49,12 +48,12 @@ export const Sidebar: React.FC<SidebarProps> = () => {
           >
             {active ? (
               <Link href={href} className="flex items-center gap-2">
-                <Image src={icon} alt={label} className="w-4" />
+                {/* <Image src={icon} alt={label} className="w-4" /> */}
                 <label>{label}</label>
               </Link>
             ) : (
               <>
-                <Image src={icon} alt={label} className="w-4" />
+                {/* <Image src={icon} alt={label} className="w-4" /> */}
                 <label>{label}</label>
               </>
             )}
@@ -72,11 +71,11 @@ export const Sidebar: React.FC<SidebarProps> = () => {
             </p>
           </div>
         </div>
-        <Image
+        {/* <Image
           src={IconExit}
           alt="IconExit"
           className="w-5 h-5 cursor-pointer"
-        />
+        /> */}
       </div>
     </div>
   );

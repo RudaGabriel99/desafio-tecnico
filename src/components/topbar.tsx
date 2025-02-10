@@ -4,7 +4,7 @@
 import { Avatar } from "@nextui-org/react";
 import IconUser from "@public/user.png";
 import { Bell, MagnifyingGlass } from "phosphor-react";
-import InputSearch from "./Input";
+import InputSearch from "./input";
 
 type TopBarProps = {
   pathname: string;
@@ -14,7 +14,7 @@ type TopBarProps = {
 
 const getPageName = (pathname: string) => {
   switch (pathname) {
-    case "/home":
+    case "/":
       return "Início";
     case "/conections":
       return "Conexões";
