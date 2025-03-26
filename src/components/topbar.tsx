@@ -3,8 +3,8 @@
 
 import { Avatar } from "@nextui-org/react";
 import IconUser from "@public/user.png";
-import { Bell, MagnifyingGlass } from "phosphor-react";
-import InputSearch from "./input";
+import { Bell } from "phosphor-react";
+import { Field } from "./field/field";
 
 type TopBarProps = {
   pathname: string;
@@ -41,7 +41,10 @@ export const TopBar = ({ pathname, notificationsCount }: TopBarProps) => {
 
       <div className="flex items-center gap-4 w-full sm:w-auto justify-end">
         <div className="flex-grow sm:flex-grow-0 w-full sm:w-auto">
-          <InputSearch placeholder="Procurar" icon={MagnifyingGlass} />
+          <Field
+            placeholder="Buscar"
+            type="text"
+          />
         </div>
 
         <div className="relative bg-primary p-2 rounded-full cursor-pointer">

@@ -15,6 +15,7 @@ import { usePathname } from "next/navigation";
 
 interface SidebarProps {
   onClose?: () => void;
+
 }
 
 export const Sidebar: React.FC<SidebarProps> = () => {
